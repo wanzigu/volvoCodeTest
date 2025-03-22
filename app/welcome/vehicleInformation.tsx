@@ -32,37 +32,38 @@ export function VehicleInformation() {
   
     return (
       <Container>
-        <Box textAlign={"center"}>
+        <Box textAlign={"center"} paddingBottom={3}>
           <h1>Vehicle Information</h1>
         </Box>
+        <p>Vehicle Details</p>
         <table style={{
             fontSize: "12px",
-            width: "100%",
+            width: "85%",
             border: '1px solid gray'
             }}>
             <tbody>
             <tr>
-                <th>Brand</th>
-                <th>Cassie Series</th>
-                <th>Chassis Number</th>
-                <th>Country of Operation</th>
-                <th>Engine Status</th>
-                <th>Fleet</th>
-                <th>MSIDN</th>
+                <th width={"180px"}>Brand</th>
+                <th width={"90px"}>Cassis Series</th>
+                <th width={"100px"}>Chassis Number</th>
+                <th width={"110px"}>Country of Operation</th>
+                <th width={"90px"}>Engine Status</th>
+                <th width={"90px"}>Fleet</th>
+                <th width={"90px"}>MSIDN</th>
             </tr>
             <tr>
                 <td>{vehicleInfo.brand}</td>
-                <td>{vehicleInfo.cassieSeries}</td>
-                <td>{vehicleInfo.chassisNumber}</td>
-                <td>{vehicleInfo.countryOfOperation}</td>
-                <td>{vehicleInfo.engineStatus}</td>
-                <td>{vehicleInfo.fleet}</td>
-                <td>{vehicleInfo.msidn}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{vehicleInfo.cassisSeries}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{vehicleInfo.chassisNumber}</td>
+                <td>&nbsp;&nbsp;{vehicleInfo.countryOfOperation}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{vehicleInfo.engineStatus}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{vehicleInfo.fleet}</td>
+                <td>&nbsp;&nbsp;&nbsp;{vehicleInfo.msidn}</td>
                 </tr>
             </tbody>
         </table>
                   
-        <Box sx={{ ml: 20, mt: 5 }}>
+        <Box sx={{mt: 4 }}>
           <FormControl sx={{minWidth: 250 }}>
             <InputLabel id="service-id">Active Services</InputLabel>
             <Select

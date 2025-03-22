@@ -16,13 +16,13 @@ export function Service() {
     console.log(serviceInfo);
     console.log(services);
 
-    let activeServices : any = [];
+    let selectedStatus : any = [];
     services.map((service: any)=>{
         if (service.status === "ERROR") {
-            activeServices.push(service);
+            selectedStatus.push(service);
         }
     });
-    console.log(activeServices);
+    console.log(selectedStatus);
     
     const handleServiceChange = (event: SelectChangeEvent) => {
         setService(event.target.value);
@@ -66,6 +66,8 @@ export function Service() {
             </FormControl>
             {service !== '' && <p>{service}</p>}
         </Box>
+
+        <p>Service Details</p>
         <table style={{
             fontSize: "12px",
             width: "60%",
@@ -79,15 +81,15 @@ export function Service() {
                 <th>Last Updated</th>
             </tr>
             <tr>
-                <td>{serviceInfo.serviceName}</td>
-                <td>{serviceInfo.status}</td>
-                <td>{serviceInfo.reason}</td>
-                <td>{serviceInfo.lastUpdate}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.serviceName}</td>
+                <td>&nbsp;&nbsp;&nbsp;{serviceInfo.status}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.reason}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.lastUpdate}</td>
             </tr>
             </tbody>
         </table>
                     
-        <Box sx={{ mt: 4 }}>
+        <Box sx={{ mt: 5 }}>
             <FormControl sx={{minWidth: 250 }}>
             <InputLabel id="service-id">Service status</InputLabel>
             <Select
@@ -100,7 +102,7 @@ export function Service() {
                 <MenuItem value=""> 
                 <em>None</em>
                 </MenuItem>
-                {activeServices !== null && activeServices?.map((service: any)=>{
+                {selectedStatus !== null && selectedStatus?.map((service: any)=>{
                 return(
                 <MenuItem>{service.serviceName}</MenuItem>
                 )  
@@ -108,7 +110,7 @@ export function Service() {
             </Select>
             <FormHelperText>Selected service status</FormHelperText>
             </FormControl>
-            {service !== '' && <p>{service}</p>}
+            <p>{selectedStatus[0].serviceName}</p>
         </Box>
         </Container>
     );
