@@ -70,21 +70,21 @@ export function Service() {
         <p>Service Details</p>
         <table style={{
             fontSize: "12px",
-            width: "60%",
+            width: "50%",
             border: '1px solid gray'
             }}>
             <tbody>
             <tr>
-                <th>Service name</th>
-                <th>Status</th>
-                <th>Reason</th>
-                <th>Last Updated</th>
+                <th width={"20px"}>Service name</th>
+                <th width={"20px"}>Status</th>
+                <th width={"80px"}>Reason</th>
+                <th width={"80px"}>Last Updated</th>
             </tr>
             <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.serviceName}</td>
-                <td>&nbsp;&nbsp;&nbsp;{serviceInfo.status}</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.reason}</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.lastUpdate}</td>
+                <td>&nbsp;&nbsp;{serviceInfo.serviceName}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.status}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.reason}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{serviceInfo.lastUpdate}</td>
             </tr>
             </tbody>
         </table>
