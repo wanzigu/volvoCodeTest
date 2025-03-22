@@ -8,7 +8,7 @@ import vehicleData from "./vehicledata.json";
 import { useState } from "react";
 
 export function VehicleInformation() {
-    const [vehicle, setVehicle] = useState('');
+    const [service, setService] = useState('');
 
     const vehicleInfo = JSON.parse(vehicleData.data[0].item.routes[1].responses[1].body);
     const services = JSON.parse(vehicleData.data[0].item.routes[2].responses[1].body).services;
@@ -24,9 +24,9 @@ export function VehicleInformation() {
     console.log(activeServices);
   
     const handleChange = (event: SelectChangeEvent) => {
-      setVehicle(event.target.value);
-      if(vehicle !== undefined){
-        console.log(vehicle);
+      setService(event.target.value);
+      if(service !== undefined){
+        console.log(service);
       } 
     };
   
@@ -64,22 +64,26 @@ export function VehicleInformation() {
                   
         <Box sx={{ ml: 20, mt: 5 }}>
           <FormControl sx={{minWidth: 250 }}>
-            <InputLabel id="vehicle-id">All Vehicles</InputLabel>
+            <InputLabel id="service-id">Active Services</InputLabel>
             <Select
-              labelId="vehicle-id-label"
-              id="vehicle-id-helper"
-              value={vehicle}
-              label="vehicle"
+              labelId="service-id-label"
+              id="service-id-helper"
+              value={service}
+              label="service"
               onChange={handleChange}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-
+              {activeServices !== null && activeServices?.map((service: any)=>{
+              return(
+              <MenuItem>{service.serviceName}</MenuItem>
+              )  
+            })} 
             </Select>
             <FormHelperText>Active services</FormHelperText>
           </FormControl>
-          {vehicle !== '' && <p>{vehicle}</p>}
+          {service !== '' && <p>{service}</p>}
         </Box>
       </Container>
   );
